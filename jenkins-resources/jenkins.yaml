@@ -1,0 +1,26 @@
+jobs:
+  - script: >
+      job('jenkins-seed') {
+        scm {
+          git {
+            remote {
+                name('origin')
+                url('https://github.com/gahernandez/jenkins-seed.git')
+            }
+            extensions {
+                cleanAfterCheckout()
+            }
+          }
+        }
+        triggers {
+          cron('H/15 * * * *')
+        }
+        steps {
+          dsl {
+            external('**/*.groovy')
+            ignoreExisting(true)
+            removeAction('DISABLE')
+          }
+        }
+      }
+      

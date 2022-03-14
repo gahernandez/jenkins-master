@@ -1,0 +1,5 @@
+git:4.10.3
+job-dsl:1.78.3
+configuration-as-code:1414.v878271fc496f
+workflow-aggregator:2.7
+ldap:2.8
